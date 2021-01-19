@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Link, withRouter} from 'react-router-dom';
+// import { Connect } from 'react-redux';
+// import { updateUser } from '../redux/reducer';
 import axios from 'axios';
 import homeLogo from './../../assets/home_logo.png';
 import newLogo from './../../assets/new_logo.png';
@@ -35,12 +38,18 @@ class Nav extends Component {
             <p>placeholder username</p>
           </div>
           <div className='nav-links'>
+            <Link to='/dash'>
             <img className='nav-img' src={homeLogo} alt='home' />
+            </Link>
+            <Link to='/form'>
             <img className='nav-img' src={newLogo} alt='new post' />
+            </Link>
           </div>
+          <Link to="/" onClick={this.logout}>
           <img className='nav-img logout' src={logoutLogo} alt='logout' />
+          </Link>
         </div>
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
